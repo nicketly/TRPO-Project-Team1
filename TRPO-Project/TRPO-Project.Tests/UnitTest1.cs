@@ -1,4 +1,4 @@
-namespace TRPO_Project.Tests
+﻿namespace TRPO_Project.Tests
 {
     public class Tests
     {
@@ -8,9 +8,11 @@ namespace TRPO_Project.Tests
         }
 
         [Test]
-        public void Test1()
+        public void ComputationalTest()     //Вычислительный тест
         {
-            Assert.Pass();
+            //var result - результат вычисления
+            //double expected - ожидаемый результат с точностью до сотых
+            //Assert.AreEqual(expected, result, 0.01);
         }
     }
 }
