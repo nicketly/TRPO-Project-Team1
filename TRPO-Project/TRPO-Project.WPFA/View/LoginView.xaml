@@ -1,0 +1,196 @@
+﻿<Window x:Class="TRPO_Project.WPFA.View.LoginView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TRPO_Project.WPFA.View"
+        mc:Ignorable="d"
+        Title="LoginView" Height="450" Width="800"
+        WindowStyle="None"
+        ResizeMode="NoResize"
+        WindowStartupLocation="CenterScreen"
+        Background="Transparent"
+        AllowsTransparency="True"
+        MouseDown="Window_MouseDown">
+
+    <Border CornerRadius="10">
+        <Border CornerRadius="5"
+                BorderThickness="1">
+
+            <Border.Background>
+                <LinearGradientBrush StartPoint="1,0" EndPoint="0,1">
+                <GradientStop Color="#FF1C0F5B"/>
+                <GradientStop Color="#FF8000A6" Offset="1"/>
+                <GradientStop Color="#FF4D0072" Offset="0.519"/>
+            </LinearGradientBrush>
+            </Border.Background>
+
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="20"/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition Width="40"/>
+                        <ColumnDefinition Width="40"/>
+                        <ColumnDefinition Width="5"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Button x:Name="btn_Minimize"
+                            BorderThickness="0"
+                            Foreground="White"
+                            Content="–"
+                            FontSize="16"
+                            FontFamily="Montserrat"
+                            Cursor="Hand"
+                            Grid.Column="1"
+                            Click="btn_Minimize_Click">
+                        
+                        <Button.Style>
+                            <Style TargetType="Button">
+                                <Setter Property="Background" Value="Transparent"/>
+                                <Style.Triggers>
+                                    <Trigger Property="IsMouseOver" Value="True">
+                                        <Setter Property="Background">
+                                            <Setter.Value>
+                                                <SolidColorBrush Color="White" Opacity="0.15"/>
+                                            </Setter.Value>
+                                        </Setter>
+                                    </Trigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Button.Style>
+
+                        <Button.Template>
+                            <ControlTemplate TargetType="Button">
+                                <Border Background="{TemplateBinding Background}">
+                                    <ContentPresenter VerticalAlignment="Center"
+                                                      HorizontalAlignment="Center"/>
+                                </Border>
+                            </ControlTemplate>
+                        </Button.Template>
+                        
+                    </Button>
+
+                    <Button x:Name="btn_Close"
+                            BorderThickness="0"
+                            Content="×"
+                            VerticalAlignment="Center"
+                            Foreground="White"
+                            FontSize="19"
+                            FontFamily="Montserrat"
+                            Cursor="Hand"
+                            Grid.Column="2"
+                            Click="btn_Close_Click">
+
+                        <Button.Style>
+                            <Style TargetType="Button">
+                                <Setter Property="Background" Value="Transparent"/>
+                                <Style.Triggers>
+                                    <Trigger Property="IsMouseOver" Value="True">
+                                        <Setter Property="Background">
+                                            <Setter.Value>
+                                                <SolidColorBrush Color="White" Opacity="0.15"/>
+                                            </Setter.Value>
+                                        </Setter>
+                                    </Trigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Button.Style>
+
+                        <Button.Template>
+                            <ControlTemplate TargetType="Button">
+                                <Border Background="{TemplateBinding Background}">
+                                    <ContentPresenter VerticalAlignment="Center"
+                                                      HorizontalAlignment="Center"/>
+                                </Border>
+                            </ControlTemplate>
+                        </Button.Template>
+
+                    </Button>
+                </Grid>
+
+                <StackPanel Width="250"
+                            Grid.Row="1"
+                            Orientation="Vertical"
+                            Margin="0,35,0,0">
+                    <Image Source="/View/logo_yw.png" Height="133"/>
+
+                    <Label Margin="0,30,0,0"
+                           Content="Имя пользователя"
+                           Foreground="DarkGray"
+                           FontSize="10"
+                           FontFamily="Montserrat"
+                           HorizontalAlignment="Left"/>
+                    <TextBox x:Name="txtUser"
+                             FontSize="12"
+                             FontFamily="Montserrat"
+                             Background="Transparent"
+                             Foreground="White"
+                             CaretBrush="LightGray"
+                             BorderBrush="DarkGray"
+                             BorderThickness="0,0,0,1"
+                             Height="24"
+                             VerticalAlignment="Center"
+                             Margin="0,5,0,0"/>
+
+                    <Label Margin="0,10,0,0"
+                           Content="Пин-код"
+                           Foreground="DarkGray"
+                           FontSize="10"
+                           FontFamily="Montserrat"
+                           HorizontalAlignment="Left"/>
+                    <PasswordBox x:Name="txtPIN"
+                             FontSize="12"
+                             FontFamily="Montserrat"
+                             Background="Transparent"
+                             Foreground="White"
+                             CaretBrush="LightGray"
+                             BorderBrush="DarkGray"
+                             BorderThickness="0,0,0,1"
+                             Height="24"
+                             VerticalAlignment="Center"
+                             Margin="0,5,0,0"/>
+
+                    <Button x:Name="btn_Login"
+                            Margin="0,36,0,0"
+                            BorderThickness="0"
+                            Content="Вход"
+                            Foreground="Black"
+                            FontSize="10"
+                            FontFamily="Montserrat Bold"
+                            Cursor="Hand"
+                            Click="btn_Login_Click">
+                        <Button.Style>
+                            <Style TargetType="Button">
+                                <Setter Property="Background" Value="#FFE3BC22"/>
+                                <Style.Triggers>
+                                    <Trigger Property="IsMouseOver" Value="True">
+                                        <Setter Property="Background" Value="#FFD7B221"/>
+                                    </Trigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Button.Style>
+
+                        <Button.Template>
+                            <ControlTemplate TargetType="Button">
+                                <Border Width="150" Height="20"
+                                        CornerRadius="2"
+                                        Background="{TemplateBinding Background}">
+                                    <ContentPresenter VerticalAlignment="Center"
+                                                      HorizontalAlignment="Center"/>
+                                </Border>
+                            </ControlTemplate>
+                        </Button.Template>
+
+                    </Button>
+                    
+                </StackPanel>
+                
+            </Grid>
+        </Border>
+    </Border>
+</Window>
