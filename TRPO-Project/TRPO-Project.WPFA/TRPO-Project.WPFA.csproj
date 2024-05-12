@@ -9,12 +9,8 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="View\logo_yb.png" />
     <None Remove="View\logo_yw.png" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <PackageReference Include="MaterialDesignColors" Version="2.1.4" />
-    <PackageReference Include="MaterialDesignThemes" Version="4.9.0" />
   </ItemGroup>
 
   <ItemGroup>
@@ -23,11 +19,11 @@
 
   <ItemGroup>
     <Folder Include="Model\" />
-    <Folder Include="Resources\" />
     <Folder Include="ViewModel\" />
   </ItemGroup>
 
   <ItemGroup>
+    <Resource Include="View\logo_yb.png" />
     <Resource Include="View\logo_yw.png" />
   </ItemGroup>
 

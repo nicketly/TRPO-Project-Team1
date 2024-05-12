@@ -18,10 +18,9 @@
                 BorderThickness="1">
 
             <Border.Background>
-                <LinearGradientBrush StartPoint="1,0" EndPoint="0,1">
-                <GradientStop Color="#FF1C0F5B"/>
-                <GradientStop Color="#FF8000A6" Offset="1"/>
-                <GradientStop Color="#FF4D0072" Offset="0.519"/>
+                <LinearGradientBrush StartPoint="0,1" EndPoint="0,0">
+                <GradientStop Color="#FF310280"/>
+                <GradientStop Color="#FF8A59DC" Offset="1"/>
             </LinearGradientBrush>
             </Border.Background>
 
