@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection.Metadata;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -43,6 +44,19 @@ namespace TRPO_Project.WPFA.View
         private void btn_Login_Click(object sender, RoutedEventArgs e)
         {
 
+        }
+
+        private void btn_Maximize_Click(object sender, RoutedEventArgs e)
+        {
+            
+            if (WindowState != WindowState.Maximized)
+            {
+                WindowState = WindowState.Maximized;
+            }
+            else
+            {
+                WindowState = WindowState.Normal;
+            }
         }
     }
 }

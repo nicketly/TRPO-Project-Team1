@@ -77,10 +77,10 @@
                     <Button x:Name="btn_Close"
                             BorderThickness="0"
                             Content="×"
-                            VerticalAlignment="Center"
+                            VerticalContentAlignment="Center"
                             Foreground="White"
                             FontSize="19"
-                            FontFamily="Montserrat"
+                            FontFamily="Montserrat Extralight"
                             Cursor="Hand"
                             Grid.Column="2"
                             Click="btn_Close_Click">
@@ -115,7 +115,7 @@
                 <StackPanel Width="250"
                             Grid.Row="1"
                             Orientation="Vertical"
-                            Margin="0,35,0,0">
+                            VerticalAlignment="Center">
                     <Image Source="/View/logo_yw.png" Height="133"/>
 
                     <Label Margin="0,30,0,0"
