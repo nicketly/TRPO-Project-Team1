@@ -18,11 +18,23 @@
   </ItemGroup>
 
   <ItemGroup>
+<<<<<<< Updated upstream
     <Folder Include="Model\" />
     <Folder Include="ViewModel\" />
   </ItemGroup>
 
   <ItemGroup>
+=======
+    <PackageReference Include="LiveCharts.Wpf.NetCore3" Version="0.9.8" />
+    <PackageReference Include="MaterialDesignColors" Version="3.0.0" />
+    <PackageReference Include="MaterialDesignThemes" Version="4.9.0" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+    <PackageReference Include="System.Data.SqlClient" Version="4.8.6" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="View\logo.png" />
+>>>>>>> Stashed changes
     <Resource Include="View\logo_yb.png" />
     <Resource Include="View\logo_yw.png" />
   </ItemGroup>
