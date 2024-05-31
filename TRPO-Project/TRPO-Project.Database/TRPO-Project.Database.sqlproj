@@ -58,9 +58,6 @@
     <Folder Include="Properties" />
   </ItemGroup>
   <ItemGroup>
-    <Build Include="History.sql" />
-  </ItemGroup>
-  <ItemGroup>
     <RefactorLog Include="TRPO-Project.Database.refactorlog" />
   </ItemGroup>
 </Project>
