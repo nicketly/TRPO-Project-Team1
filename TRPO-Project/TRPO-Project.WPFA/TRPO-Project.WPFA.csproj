@@ -18,6 +18,8 @@
   </ItemGroup>
 
   <ItemGroup>
+<<<<<<< Updated upstream
+<<<<<<< Updated upstream
     <Folder Include="Model\" />
   </ItemGroup>
 
@@ -29,6 +31,17 @@
 
   <ItemGroup>
     <Resource Include="View\logo.png" />
+    <PackageReference Include="LiveCharts.Wpf.NetCore3" Version="0.9.8" />
+    <PackageReference Include="MaterialDesignColors" Version="3.0.0" />
+    <PackageReference Include="MaterialDesignThemes" Version="4.9.0" />
+    <PackageReference Include="MvvmLightLibs" Version="5.4.1.1" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+>>>>>>> Stashed changes
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="View\logo.png" />
+>>>>>>> Stashed changes
     <Resource Include="View\logo_yb.png" />
     <Resource Include="View\logo_yw.png" />
   </ItemGroup>

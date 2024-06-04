@@ -25,6 +25,7 @@ namespace TRPO_Project.WPFA.View
         public Briefcase()
         {
             InitializeComponent();
+            DataContext = new MainViewModel();
 
             var menuStock = new List<SubItem>();
             menuStock.Add(new SubItem(PackIconKind.CheckboxMarkedCircleOutline, "SBER", "1379.50 ₽", "+11.30 ₽ (0.8%)"));
