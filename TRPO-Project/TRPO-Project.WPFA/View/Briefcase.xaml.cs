@@ -69,8 +69,6 @@ WHERE Дата = @ПоследняяДата AND History.Код != 'RUB' AND О�
                             decimal стоимость = reader.GetDecimal(3);
                             string изменение = "0";
 
-                            // Передайте соответствующие значения для PackIconKind, если они доступны.
-                            // Здесь я использовал PackIconKind.CheckboxMarkedCircleOutline в качестве примера.
                             menuStock.Add(new SubItem(PackIconKind.CheckboxMarkedCircleOutline, наименование, стоимость, изменение));
                         }
                     }
