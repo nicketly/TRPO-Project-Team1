@@ -11,7 +11,6 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-using TRPO_Project.WPFA.ViewModel;
 
 namespace TRPO_Project.WPFA.View
 {
@@ -23,7 +22,6 @@ namespace TRPO_Project.WPFA.View
         public Main()
         {
             InitializeComponent();
-            DataContext = new AssetViewModel();
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
