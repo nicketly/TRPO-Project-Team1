@@ -1,0 +1,21 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace TRPO_Project.WPFA.Model
+{
+    public class Asset
+    {
+<<<<<<< HEAD
+        public string Код { get; set; }
+        public string Наименование { get; set; }
+        public string Тип { get; set; }
+=======
+        public string Code { get; set; }
+        public string Name { get; set; }
+        public string Type { get; set; }
+>>>>>>> 130ce414c6a2660ee65b9d537d68116907cf35c7
+    }
+}
