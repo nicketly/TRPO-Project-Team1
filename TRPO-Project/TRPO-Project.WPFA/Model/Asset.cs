@@ -8,8 +8,8 @@ namespace TRPO_Project.WPFA.Model
 {
     public class Asset
     {
-        public string Code { get; set; }
-        public string Name { get; set; }
-        public string Type { get; set; }
+        public string Код { get; set; }
+        public string Наименование { get; set; }
+        public string Тип { get; set; }
     }
 }

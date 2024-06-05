@@ -2,7 +2,10 @@
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:local="clr-namespace:TRPO_Project.WPFA"
-             StartupUri="View/Main.xaml">
+<<<<<<< HEAD
+             xmlns:lvc="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
+=======
+>>>>>>> Nick
              StartupUri="View/Main.xaml">
     <Application.Resources>
         <ResourceDictionary>
@@ -13,6 +16,7 @@
 
 
             </ResourceDictionary.MergedDictionaries>
+<<<<<<< HEAD
             <Style TargetType="lvc:LineSeries">
                 <Setter Property="StrokeThickness" Value="3"></Setter>
 
@@ -30,6 +34,8 @@
                 <Setter Property="ShowLabels" Value="False"></Setter>
                 <Setter Property="IsEnabled" Value="False"></Setter>
             </Style>
+=======
+>>>>>>> Nick
         </ResourceDictionary>
     </Application.Resources>
 </Application>
