@@ -23,7 +23,6 @@ namespace TRPO_Project.WPFA.View
         public MainView()
         {
             InitializeComponent();
-            DataContext = new AssetViewModel();
         }
     }
 }
