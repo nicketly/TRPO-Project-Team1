@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MaterialDesignThemes.Wpf;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -16,14 +17,15 @@ using TRPO_Project.WPFA.ViewModel;
 namespace TRPO_Project.WPFA.View
 {
     /// <summary>
-    /// Interaction logic for MainView.xaml
+    /// Логика взаимодействия для Accounting.xaml
     /// </summary>
-    public partial class MainView : Window
+    public partial class Accounting : UserControl
     {
-        public MainView()
+        public Accounting()
         {
             InitializeComponent();
-            DataContext = new AssetViewModel();
+
+
         }
     }
 }

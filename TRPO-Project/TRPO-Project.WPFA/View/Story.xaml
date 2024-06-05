@@ -17,9 +17,30 @@
         </Grid.Background>
 
         <TextBlock Margin="65 70" HorizontalAlignment="Left"  FontWeight="SemiBold" Text="История" FontSize="60" Foreground="WhiteSmoke" />
+        <WrapPanel>
+            <StackPanel>
+                <TextBox Margin="65 170 0 0" HorizontalAlignment="Left" VerticalAlignment="Top" Height="50" Width="600" FontWeight="SemiBold" FontSize="30" Foreground="WhiteSmoke" Background="#413C8E">
+
+                </TextBox>
+                <TextBlock  Margin="70 0 0 0"  FontWeight="SemiBold" Text="Поиск" FontSize="15" Foreground="WhiteSmoke" />
+            </StackPanel>
+            <Button Background="#E8E15A" BorderBrush="#E8E15A" Foreground="Black" Margin="40 146 0 0" Height="40" Width="140" HorizontalAlignment="Right"  >
+                <WrapPanel HorizontalAlignment="Center" >
+                    <TextBlock Text="Поиск" VerticalAlignment="Center" FontWeight="SemiBold" Margin="10 0" TextWrapping="Wrap" FontSize="17"/>
+                </WrapPanel>
+            </Button>
+
+            <Button Background="#22215D" BorderBrush="#E8E15A" Foreground="#E8E15A" Margin="40 146 0 0" Height="40" Width="140" HorizontalAlignment="Right"  >
+                <WrapPanel HorizontalAlignment="Center" >
+                    <TextBlock Text="Удалить" VerticalAlignment="Center" FontWeight="SemiBold" Margin="10 0" TextWrapping="Wrap" FontSize="17"/>
+                </WrapPanel>
+            </Button>
+        </WrapPanel>
         
-        <materialDesign:Card materialDesign:ShadowAssist.ShadowDepth="Depth0" UniformCornerRadius="15" BorderThickness="5" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="65 180 0 0"
-BorderBrush="White" Width="975" Height="620" >
+
+
+        <materialDesign:Card materialDesign:ShadowAssist.ShadowDepth="Depth0" UniformCornerRadius="15" BorderThickness="5" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="65 270 0 0"
+BorderBrush="White" Width="975" Height="545" >
             <materialDesign:Card.Background>
                 <LinearGradientBrush StartPoint="0,1" EndPoint="0,0">
                     <GradientStop Color="#4d1285"/>

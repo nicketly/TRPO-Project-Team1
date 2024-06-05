@@ -11,6 +11,10 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+<<<<<<< HEAD
+=======
+using TRPO_Project.WPFA.ViewModel;
+>>>>>>> Nick
 
 namespace TRPO_Project.WPFA.View
 {
@@ -22,6 +26,10 @@ namespace TRPO_Project.WPFA.View
         public Main()
         {
             InitializeComponent();
+<<<<<<< HEAD
+=======
+            DataContext = new AssetViewModel();
+>>>>>>> Nick
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
@@ -46,12 +54,5 @@ namespace TRPO_Project.WPFA.View
             RenderPages.Children.Clear();
             RenderPages.Children.Add(new Story());
         }
-
-        private void ButtonGraphs_Click(object sender, RoutedEventArgs e)
-        {
-            RenderPages.Children.Clear();
-            RenderPages.Children.Add(new Graphs());
-        }
-        
     }
 }

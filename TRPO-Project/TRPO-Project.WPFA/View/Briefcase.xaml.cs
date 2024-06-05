@@ -113,6 +113,38 @@ WHERE Дата = @ПоследняяДата AND History.Код != 'RUB' AND О�
         {
 
         }
+
+        private void ButtonAccount_Click(object sender, RoutedEventArgs e)
+        {
+            Main parentWindow = (Main)Application.Current.MainWindow;
+            parentWindow.RenderPages.Children.Clear();
+            parentWindow.RenderPages.Children.Add(new Account());
+
+        }
+
+        private void ButtonAssets_Click(object sender, RoutedEventArgs e)
+        {
+            Main parentWindow = (Main)Application.Current.MainWindow;
+            parentWindow.RenderPages.Children.Clear();
+            parentWindow.RenderPages.Children.Add(new Assets());
+
+        }
+
+        private void ButtonPayments_Click(object sender, RoutedEventArgs e)
+        {
+            Main parentWindow = (Main)Application.Current.MainWindow;
+            parentWindow.RenderPages.Children.Clear();
+            parentWindow.RenderPages.Children.Add(new Payments());
+
+        }
+
+        private void ButtonAccounting_Click(object sender, RoutedEventArgs e)
+        {
+            Main parentWindow = (Main)Application.Current.MainWindow;
+            parentWindow.RenderPages.Children.Clear();
+            parentWindow.RenderPages.Children.Add(new Accounting());
+
+        }
         private void LoadBalance()
         {
             DataService dataService = new DataService();

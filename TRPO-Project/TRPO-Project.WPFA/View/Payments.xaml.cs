@@ -11,19 +11,17 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-using TRPO_Project.WPFA.ViewModel;
 
 namespace TRPO_Project.WPFA.View
 {
     /// <summary>
-    /// Interaction logic for MainView.xaml
+    /// Логика взаимодействия для Payments.xaml
     /// </summary>
-    public partial class MainView : Window
+    public partial class Payments : UserControl
     {
-        public MainView()
+        public Payments()
         {
             InitializeComponent();
-            DataContext = new AssetViewModel();
         }
     }
 }

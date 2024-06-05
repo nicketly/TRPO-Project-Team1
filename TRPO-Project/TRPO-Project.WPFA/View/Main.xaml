@@ -48,7 +48,7 @@
                             </Button>
                         </ListViewItem>
                         <ListViewItem HorizontalAlignment="Center" Margin="0 10">
-                            <Button Style="{StaticResource MaterialDesignFloatingActionButton}" HorizontalAlignment="Left"
+                            <Button Style="{StaticResource MaterialDesignFloatingActionButton}" HorizontalAlignment="Left" x:Name="ButtonGraphs" Click="ButtonGraphs_Click" 
                          BorderBrush="{x:Null}" Background="{x:Null}" Foreground="White">
                                 <StackPanel Margin="-5">
                                     <materialDesign:PackIcon Kind="Finance" Width="40" Height="40"/>
