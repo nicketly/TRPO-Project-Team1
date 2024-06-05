@@ -28,7 +28,7 @@
                     <TextBlock FontWeight="SemiBold" FontSize="45" Text="1181,01 ₽" Foreground="WhiteSmoke" Margin="0 0 0 0" />
                 </StackPanel>
 
-                <Button Background="#E8E15A" BorderBrush="#E8E15A" Foreground="Black" Margin="40 50 0 0" Height="40" HorizontalAlignment="Right">
+                <Button Background="#E8E15A" BorderBrush="#E8E15A" Foreground="Black" Margin="40 50 0 0" Height="40" HorizontalAlignment="Right" x:Name="ButtonAccount" Click="ButtonAccount_Click" >
                     <WrapPanel HorizontalAlignment="Center" >
                         <materialDesign:PackIcon Kind="WalletOutline" Width="25" Height="25" />
                         <TextBlock Text="Пополнить или вывести" VerticalAlignment="Center" FontWeight="SemiBold" Margin="10 0" TextWrapping="Wrap"/>
@@ -36,9 +36,20 @@
                 </Button>
 
             </WrapPanel>
-            <TextBlock Margin="65 350 0 0" FontWeight="SemiBold" FontSize="30" Text="Активы"  Foreground="WhiteSmoke"/>
-            <ListBox SelectionChanged="ListBox_SelectionChanged" Margin="65 350 0 230">
-            </ListBox>
+            <WrapPanel>
+                <TextBlock Margin="65 350 0 0" FontWeight="SemiBold" FontSize="30" Text="Активы"  Foreground="WhiteSmoke"/>
+                <Button BorderThickness="0" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="490 348 0 0"
+Background="#6232B3" BorderBrush="#6232B3" Width="45" Height="45" x:Name="ButtonAssets" Click="ButtonAssets_Click" >
+
+
+                    <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center"  FontWeight="Normal" Text="+" FontSize="35" Foreground="#E8E15A"   />
+
+                </Button>
+                
+
+            </WrapPanel>
+            
+
             <materialDesign:Card materialDesign:ShadowAssist.ShadowDepth="Depth0" UniformCornerRadius="15" BorderThickness="5" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="65 400 0 0"
                 BorderBrush="White" Width="650" Height="200" >
                 <materialDesign:Card.Background>
@@ -58,9 +69,18 @@
                 </StackPanel>
             </materialDesign:Card>
 
-            <TextBlock Margin="65 605 0 0" FontWeight="SemiBold" FontSize="30" Text="Выплаты"  Foreground="WhiteSmoke"/>
-            <ListBox SelectionChanged="ListBox_SelectionChanged" Margin="65 605 0 0">
-            </ListBox>
+            <WrapPanel>
+                <TextBlock Margin="65 605 0 0" FontWeight="SemiBold" FontSize="30" Text="Выплаты"  Foreground="WhiteSmoke"/>
+                <Button BorderThickness="0" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="470 603 0 0"
+Background="#6232B3" BorderBrush="#6232B3" Width="45" Height="45" x:Name="ButtonPayments" Click="ButtonPayments_Click" >
+
+
+                    <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center"  FontWeight="Normal" Text="+" FontSize="35" Foreground="#E8E15A"   />
+
+                </Button>
+            </WrapPanel>
+           
+
             <materialDesign:Card materialDesign:ShadowAssist.ShadowDepth="Depth0" UniformCornerRadius="15" BorderThickness="5" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="65 650 0 0"
     BorderBrush="White" Width="650" Height="170" >
                 <materialDesign:Card.Background>
@@ -84,6 +104,7 @@
         <Grid Grid.Column="1">
             <ListBox SelectionChanged="ListBox_SelectionChanged">
             </ListBox>
+<<<<<<< Updated upstream
             <materialDesign:Card materialDesign:ShadowAssist.ShadowDepth="Depth0" UniformCornerRadius="15" BorderThickness="5" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0 60 50 0"
                     BorderBrush="White" Width="150" Height="180" >
                 <materialDesign:Card.Background>
@@ -112,6 +133,12 @@
                     </WrapPanel>
                 </StackPanel>
             </materialDesign:Card>
+=======
+            <Button Margin="0 60 50 0" Width="250" Height="100" HorizontalAlignment="Right" VerticalAlignment="Top" Background="#E8E15A" BorderBrush="#E8E15A" Foreground="Black" x:Name="ButtonAccounting" Click="ButtonAccounting_Click">
+                <TextBlock Margin="0 0" HorizontalAlignment="Center" FontWeight="SemiBold" FontSize="30" Text="Учет"/>
+            </Button>
+
+>>>>>>> Stashed changes
 
             <TextBlock Margin="60 240 0 0" FontWeight="SemiBold" FontSize="25" Text="Стоимость портфеля"  Foreground="WhiteSmoke"/>
             <ListBox SelectionChanged="ListBox_SelectionChanged" Margin="65 605 0 0">
