@@ -46,5 +46,12 @@ namespace TRPO_Project.WPFA.View
             RenderPages.Children.Clear();
             RenderPages.Children.Add(new Story());
         }
+
+        private void ButtonGraphs_Click(object sender, RoutedEventArgs e)
+        {
+            RenderPages.Children.Clear();
+            RenderPages.Children.Add(new Graphs());
+        }
+        
     }
 }
