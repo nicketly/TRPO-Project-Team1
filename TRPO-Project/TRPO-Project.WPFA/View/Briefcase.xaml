@@ -22,7 +22,7 @@
         <Grid Grid.Column="0">
 
             <TextBlock Margin="65 70" HorizontalAlignment="Left"  FontWeight="SemiBold" Text="Портфель" FontSize="60" Foreground="WhiteSmoke" />
-            <WrapPanel  Width="450" Height="130" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="65 180">
+            <WrapPanel  Width="650" Height="130" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="65,180,0,0">
                 <StackPanel Margin="0">
                     <TextBlock FontWeight="SemiBold" FontSize="25" Text="Баланс счета" Margin="0 15 0 0" Foreground="LightGray"/>
                     <TextBlock FontWeight="SemiBold" FontSize="45" Foreground="WhiteSmoke" Margin="0 0 0 0">
@@ -30,8 +30,7 @@
                         <Run Text="₽"/>
                     </TextBlock>
                 </StackPanel>
-
-                <Button Background="#E8E15A" BorderBrush="#E8E15A" Foreground="Black" Margin="40 50 0 0" Height="40" HorizontalAlignment="Right" x:Name="ButtonAccount" Click="ButtonAccount_Click" >
+                <Button Background="#E8E15A" BorderBrush="#E8E15A" Foreground="Black" Margin="260 50 0 0" Height="40" HorizontalAlignment="Right" x:Name="ButtonAccount" Click="ButtonAccount_Click" >
                     <WrapPanel HorizontalAlignment="Center" >
                         <materialDesign:PackIcon Kind="WalletOutline" Width="25" Height="25" />
                         <TextBlock Text="Пополнить или вывести" VerticalAlignment="Center" FontWeight="SemiBold" Margin="10 0" TextWrapping="Wrap"/>
@@ -42,16 +41,16 @@
             <WrapPanel>
                 <TextBlock Margin="65 350 0 0" FontWeight="SemiBold" FontSize="30" Text="Активы"  Foreground="WhiteSmoke"/>
                 <Button BorderThickness="0" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="490 348 0 0"
-Background="#6232B3" BorderBrush="#6232B3" Width="45" Height="45" x:Name="ButtonAssets" Click="ButtonAssets_Click" >
+Background="Transparent"  Width="45" Height="45" x:Name="ButtonAssets" Click="ButtonAssets_Click" >
 
 
                     <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center"  FontWeight="Normal" Text="+" FontSize="35" Foreground="#E8E15A"   />
 
                 </Button>
-                
+
 
             </WrapPanel>
-            
+
 
             <materialDesign:Card materialDesign:ShadowAssist.ShadowDepth="Depth0" UniformCornerRadius="15" BorderThickness="5" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="65 400 0 0"
                 BorderBrush="White" Width="650" Height="200" >
@@ -72,17 +71,17 @@ Background="#6232B3" BorderBrush="#6232B3" Width="45" Height="45" x:Name="Button
                 </StackPanel>
             </materialDesign:Card>
 
-            <WrapPanel>
+            <WrapPanel Margin="-10,0,10,0">
                 <TextBlock Margin="65 605 0 0" FontWeight="SemiBold" FontSize="30" Text="Выплаты"  Foreground="WhiteSmoke"/>
                 <Button BorderThickness="0" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="470 603 0 0"
-Background="#6232B3" BorderBrush="#6232B3" Width="45" Height="45" x:Name="ButtonPayments" Click="ButtonPayments_Click" >
+Background="Transparent" Width="45" Height="45" x:Name="ButtonPayments" Click="ButtonPayments_Click" >
 
 
                     <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center"  FontWeight="Normal" Text="+" FontSize="35" Foreground="#E8E15A"   />
 
                 </Button>
             </WrapPanel>
-           
+
 
             <materialDesign:Card materialDesign:ShadowAssist.ShadowDepth="Depth0" UniformCornerRadius="15" BorderThickness="5" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="65 650 0 0"
     BorderBrush="White" Width="650" Height="170" >
@@ -115,7 +114,7 @@ Background="#6232B3" BorderBrush="#6232B3" Width="45" Height="45" x:Name="Button
             <ListBox SelectionChanged="ListBox_SelectionChanged" Margin="65 605 0 0">
             </ListBox>
             <materialDesign:Card materialDesign:ShadowAssist.ShadowDepth="Depth0" UniformCornerRadius="15" BorderThickness="5" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="60 285 0 0"
-BorderBrush="White" Width="250" Height="140" >
+BorderBrush="White" Width="250" Height="180" >
                 <materialDesign:Card.Background>
                     <LinearGradientBrush StartPoint="0,1" EndPoint="0,0">
                         <GradientStop Color="#4d1285"/>
@@ -129,13 +128,26 @@ BorderBrush="White" Width="250" Height="140" >
                         <Run Text="{Binding BriefcaseValue, StringFormat=N2}"/>
                         <Run Text="₽"/>
                     </TextBlock>
-                    <TextBlock Margin="0 0" HorizontalAlignment="Center" FontWeight="SemiBold" FontSize="20" Text="+573.00 ₽ (1.4%)"  Foreground="#2EACA3"/>
-
+                    <TextBlock Margin="0 0" HorizontalAlignment="Center" FontWeight="SemiBold" FontSize="20" Foreground="WhiteSmoke">
+                        <Run Text="ОП:"/>
+                        <Run Text="{Binding ProfitExpectedValue}"/>
+                        <Run Text="₽"/>
+                    </TextBlock>
+                    <TextBlock Margin="0 0" HorizontalAlignment="Center" FontWeight="SemiBold" FontSize="20" Foreground="WhiteSmoke">
+                        <Run Text="ФП:"/>
+                        <Run Text="{Binding ProfitFixedValue}"/>
+                        <Run Text="₽"/>
+                    </TextBlock>
+                    <TextBlock Margin="0 0" HorizontalAlignment="Center" FontWeight="SemiBold" FontSize="20" Foreground="WhiteSmoke">
+                        <Run Text="Доход:"/>
+                        <Run Text="{Binding IncomeValue}"/>
+                        <Run Text="%"/>
+                    </TextBlock>
 
                 </StackPanel>
             </materialDesign:Card>
 
-            <Calendar Margin="60 450 60 0" Height="360" Background="{DynamicResource MaterialDesign.Brush.Primary.Dark.Foreground}" Foreground="{DynamicResource MaterialDesign.Brush.Primary}" HorizontalContentAlignment="Center" VerticalContentAlignment="Stretch" UseLayoutRounding="False"  >
+            <Calendar Margin="60,470,60,20" Height="360" Background="{DynamicResource MaterialDesign.Brush.Primary.Dark.Foreground}" Foreground="{DynamicResource MaterialDesign.Brush.Primary}" HorizontalContentAlignment="Center" VerticalContentAlignment="Stretch" UseLayoutRounding="False"  >
                 <Calendar.BorderBrush>
                     <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                         <GradientStop Color="#FFA3AEB9"/>

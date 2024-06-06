@@ -47,7 +47,7 @@ BorderBrush="White" Width="975" Height="545" >
                     <GradientStop Color="#4E1E9D" Offset="1"/>
                 </LinearGradientBrush>
             </materialDesign:Card.Background>
-            <StackPanel Margin="10">
+            <!--<StackPanel Margin="10">
 
 
                 <ScrollViewer HorizontalAlignment="Stretch" HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto" Grid.Row="0" MaxHeight="620">
@@ -55,7 +55,26 @@ BorderBrush="White" Width="975" Height="545" >
                 </ScrollViewer>
 
 
-            </StackPanel>
+            </StackPanel>-->
+            <DataGrid x:Name="dataGrid" AutoGenerateColumns="False">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="ID" Binding="{Binding ID_Ист}" />
+                    <DataGridTextColumn Header="Код" Binding="{Binding Код}" />
+                    <DataGridTextColumn Header="Наименование" Binding="{Binding Наименование}" />
+                    <DataGridTextColumn Header="Тип" Binding="{Binding Тип}" />
+                    <DataGridTemplateColumn Header="Дата">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding Дата, StringFormat=dd-MM-yyyy}" />
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                    <DataGridTextColumn Header="Цена" Binding="{Binding Цена}" />
+                    <DataGridTextColumn Header="Количество" Binding="{Binding Количество}" />
+                    <DataGridTextColumn Header="Сумма" Binding="{Binding Сумма}" />
+                    <DataGridTextColumn Header="Операция" Binding="{Binding Операция}" />
+                </DataGrid.Columns>
+            </DataGrid>
         </materialDesign:Card>
     </Grid>
 </UserControl>

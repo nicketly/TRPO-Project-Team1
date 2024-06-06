@@ -1,18 +1,8 @@
-﻿using System;
+﻿using MaterialDesignThemes.Wpf;
 using System.Collections.Generic;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
-using MaterialDesignThemes.Wpf;
 using TRPO_Project.WPFA.ViewModel;
 
 namespace TRPO_Project.WPFA.View
@@ -32,6 +22,9 @@ namespace TRPO_Project.WPFA.View
 
             LoadBalance();
             LoadBriefcase();
+            LoadProfitExpected();
+            LoadProfitFixed();
+            LoadIncome();
 
 
             var connectionString = "Server=(localdb)\\ProjectModels;Database=TRPO-Project.Database;Integrated Security=True;";
@@ -49,11 +42,35 @@ JOIN Assets ON History.Код = Assets.Код
 WHERE Дата = @ПоследняяДата AND History.Код != 'RUB' AND Операция = N'Учет' AND Тип = N'Акция';
 ";
 
+            var sqlQueryCurrency = @"
+DECLARE @ПоследняяДата smalldatetime;
+SET @ПоследняяДата = (SELECT MAX(Дата) FROM [dbo].[History]);
+
+SELECT 
+    History.Код,
+    Assets.Наименование,
+    Assets.Тип,
+    History.Сумма
+FROM History
+JOIN Assets ON History.Код = Assets.Код
+WHERE Дата = @ПоследняяДата AND History.Код != 'RUB' AND Операция = N'Учет' AND Тип = N'Валюта';
+";
+
+            var sqlQueryMetals = @"
+DECLARE @ПоследняяДата smalldatetime;
+SET @ПоследняяДата = (SELECT MAX(Дата) FROM [dbo].[History]);
+
+SELECT 
+    History.Код,
+    Assets.Наименование,
+    Assets.Тип,
+    History.Сумма
+FROM History
+JOIN Assets ON History.Код = Assets.Код
+WHERE Дата = @ПоследняяДата AND History.Код != 'RUB' AND Операция = N'Учет' AND Тип = N'Драгоценный металл';
+";
+
             var menuStock = new List<SubItem>();
-            //menuStock.Add(new SubItem(PackIconKind.CheckboxMarkedCircleOutline, "SBER", "1379.50 ₽", "+11.30 ₽ (0.8%)"));
-            //menuStock.Add(new SubItem(PackIconKind.CheckboxMarkedCircleOutline, "SBER", "1379.50 ₽", "+11.30 ₽ (0.8%)"));
-            //menuStock.Add(new SubItem(PackIconKind.CheckboxMarkedCircleOutline, "SBER", "1379.50 ₽", "+11.30 ₽ (0.8%)"));
-            //menuStock.Add(new SubItem(PackIconKind.CheckboxMarkedCircleOutline, "SBER", "1379.50 ₽", "+11.30 ₽ (0.8%)"));
             using (var connection = new SqlConnection(connectionString))
             {
                 using (var command = new SqlCommand(sqlQueryStock, connection))
@@ -64,7 +81,6 @@ WHERE Дата = @ПоследняяДата AND History.Код != 'RUB' AND О�
                         while (reader.Read())
                         {
                             // Создание объекта SubItem на основе данных из выборки
-                            string код = reader.GetString(0);
                             string наименование = reader.GetString(1);
                             decimal стоимость = reader.GetDecimal(3);
                             string изменение = "0";
@@ -78,13 +94,48 @@ WHERE Дата = @ПоследняяДата AND History.Код != 'RUB' AND О�
             var item6 = new ItemMenu("Акции", menuStock, PackIconKind.ChartDonut);
 
             var menuCurrency = new List<SubItem>();
-            //menuCurrency.Add(new SubItem(PackIconKind.CurrencyRub, "Services", "₽", "+11.30 ₽ (0.8%)"));
-            //menuCurrency.Add(new SubItem(PackIconKind.CurrencyRub, "Meetings", "₽", "+11.30 ₽ (0.8%)"));
+            using (var connection = new SqlConnection(connectionString))
+            {
+                using (var command = new SqlCommand(sqlQueryCurrency, connection))
+                {
+                    connection.Open();
+                    using (var reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            // Создание объекта SubItem на основе данных из выборки
+                            string наименование = reader.GetString(1);
+                            decimal стоимость = reader.GetDecimal(3);
+                            string изменение = "0";
+
+                            menuCurrency.Add(new SubItem(PackIconKind.CheckboxMarkedCircleOutline, наименование, стоимость, изменение));
+                        }
+                    }
+                }
+            }
             var item1 = new ItemMenu("Валюта", menuCurrency, PackIconKind.ChartDonut);
 
 
             var menuMetals = new List<SubItem>();
-            //menuMetals.Add(new SubItem(PackIconKind.DiamondOutline, "Cash flow", "$", "+11 (0.8%)"));
+            using (var connection = new SqlConnection(connectionString))
+            {
+                using (var command = new SqlCommand(sqlQueryMetals, connection))
+                {
+                    connection.Open();
+                    using (var reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            // Создание объекта SubItem на основе данных из выборки
+                            string наименование = reader.GetString(1);
+                            decimal стоимость = reader.GetDecimal(3);
+                            string изменение = "0";
+
+                            menuMetals.Add(new SubItem(PackIconKind.CheckboxMarkedCircleOutline, наименование, стоимость, изменение));
+                        }
+                    }
+                }
+            }
             var item4 = new ItemMenu("Драгоценные металлы", menuMetals, PackIconKind.ChartDonut);
 
             //var item0 = new ItemMenu("Dashboard", new UserControl(), PackIconKind.ViewDashboard);
@@ -123,6 +174,22 @@ WHERE Дата = @ПоследняяДата AND History.Код != 'RUB' AND О�
             viewModel.BriefcaseValue = dataService.GetBriefcaseValue();
         }
 
+        private void LoadProfitExpected()
+        {
+            DataService dataService = new DataService();
+            viewModel.ProfitExpectedValue = (decimal)dataService.GetProfitExpected();
+        }
+        private void LoadProfitFixed()
+        {
+            DataService dataService = new DataService();
+            viewModel.ProfitFixedValue = (decimal)dataService.GetProfitFixed();
+        }
+
+        private void LoadIncome()
+        {
+            DataService dataService = new DataService();
+            viewModel.IncomeValue = (decimal)dataService.GetIncome();
+        }
         private void ButtonAccount_Click(object sender, RoutedEventArgs e)
         {
             Main parentWindow = (Main)Application.Current.MainWindow;

@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.ComponentModel;
 
 namespace TRPO_Project.WPFA.ViewModel
 {
@@ -11,6 +6,9 @@ namespace TRPO_Project.WPFA.ViewModel
     {
         private decimal _balanceValue;
         private decimal _briefcaseValue;
+        private decimal _profitExpectedValue;
+        private decimal _profitFixedValue;
+        private decimal _incomeValue;
         public decimal BalanceValue
         {
             get { return _balanceValue; }
@@ -33,6 +31,45 @@ namespace TRPO_Project.WPFA.ViewModel
                 {
                     _briefcaseValue = value;
                     OnPropertyChanged(nameof(BriefcaseValue));
+                }
+            }
+        }
+
+        public decimal ProfitExpectedValue
+        {
+            get { return _profitExpectedValue; }
+            set
+            {
+                if (_profitExpectedValue != value)
+                {
+                    _profitExpectedValue = value;
+                    OnPropertyChanged(nameof(ProfitExpectedValue));
+                }
+            }
+        }
+
+        public decimal ProfitFixedValue
+        {
+            get { return _profitFixedValue; }
+            set
+            {
+                if (_profitFixedValue != value)
+                {
+                    _profitFixedValue = value;
+                    OnPropertyChanged(nameof(ProfitFixedValue));
+                }
+            }
+        }
+
+        public decimal IncomeValue
+        {
+            get { return _incomeValue; }
+            set
+            {
+                if (_incomeValue != value)
+                {
+                    _incomeValue = value;
+                    OnPropertyChanged(nameof(IncomeValue));
                 }
             }
         }
