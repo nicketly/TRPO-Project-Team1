@@ -24,7 +24,10 @@
         <StackPanel  Margin="75 200 0 400" HorizontalAlignment="Left"  >
             <StackPanel>
                 <TextBlock Margin="0 0 0 0" HorizontalAlignment="Left"  FontWeight="SemiBold" Text="Баланс" FontSize="25" Foreground="WhiteSmoke" />
-                <TextBlock Margin="0 0 0 0" HorizontalAlignment="Left"  FontWeight="SemiBold" Text=" 1 000 000 Р" FontSize="50" Foreground="WhiteSmoke" />
+                <TextBlock FontWeight="SemiBold" FontSize="50" Foreground="WhiteSmoke" Margin="0 0 0 0">
+                        <Run Text="{Binding BalanceValue, StringFormat=N2}"/>
+                        <Run Text="₽"/>
+                </TextBlock>
             </StackPanel>
             
 

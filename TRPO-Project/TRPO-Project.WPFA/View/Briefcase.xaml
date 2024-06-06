@@ -30,7 +30,7 @@
                         <Run Text="₽"/>
                     </TextBlock>
                 </StackPanel>
-                <Button Background="#E8E15A" BorderBrush="#E8E15A" Foreground="Black" Margin="260 50 0 0" Height="40" HorizontalAlignment="Right" x:Name="ButtonAccount" Click="ButtonAccount_Click" >
+                <Button Background="#E8E15A" BorderBrush="#E8E15A" Foreground="Black" Margin="40 50 0 0" Height="40" HorizontalAlignment="Right" x:Name="ButtonAccount" Click="ButtonAccount_Click" >
                     <WrapPanel HorizontalAlignment="Center" >
                         <materialDesign:PackIcon Kind="WalletOutline" Width="25" Height="25" />
                         <TextBlock Text="Пополнить или вывести" VerticalAlignment="Center" FontWeight="SemiBold" Margin="10 0" TextWrapping="Wrap"/>
