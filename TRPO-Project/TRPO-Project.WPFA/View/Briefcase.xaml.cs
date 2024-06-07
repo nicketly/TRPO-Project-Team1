@@ -1,4 +1,5 @@
 ﻿using MaterialDesignThemes.Wpf;
+using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Windows;
@@ -18,6 +19,7 @@ namespace TRPO_Project.WPFA.View
         {
             InitializeComponent();
             viewModel = new MainViewModel();
+            DataService dataService = new DataService();
             DataContext = viewModel;
 
             LoadBalance();
@@ -70,6 +72,34 @@ JOIN Assets ON History.Код = Assets.Код
 WHERE Дата = @ПоследняяДата AND History.Код != 'RUB' AND Операция = N'Учет' AND Тип = N'Драгоценный металл';
 ";
 
+            var sqlQueryETF = @"
+DECLARE @ПоследняяДата smalldatetime;
+SET @ПоследняяДата = (SELECT MAX(Дата) FROM [dbo].[History]);
+
+SELECT 
+    History.Код,
+    Assets.Наименование,
+    Assets.Тип,
+    History.Сумма
+FROM History
+JOIN Assets ON History.Код = Assets.Код
+WHERE Дата = @ПоследняяДата AND History.Код != 'RUB' AND Операция = N'Учет' AND Тип = N'ПИФ';
+";
+
+            var sqlQueryBond = @"
+DECLARE @ПоследняяДата smalldatetime;
+SET @ПоследняяДата = (SELECT MAX(Дата) FROM [dbo].[History]);
+
+SELECT 
+    History.Код,
+    Assets.Наименование,
+    Assets.Тип,
+    History.Сумма
+FROM History
+JOIN Assets ON History.Код = Assets.Код
+WHERE Дата = @ПоследняяДата AND History.Код != 'RUB' AND Операция = N'Учет' AND Тип = N'Облигация';
+";
+
             var menuStock = new List<SubItem>();
             using (var connection = new SqlConnection(connectionString))
             {
@@ -83,7 +113,8 @@ WHERE Дата = @ПоследняяДата AND History.Код != 'RUB' AND О�
                             // Создание объекта SubItem на основе данных из выборки
                             string наименование = reader.GetString(1);
                             decimal стоимость = reader.GetDecimal(3);
-                            string изменение = "0";
+                            string код = reader.GetString(0);
+                            double изменение = Math.Round(dataService.GetProfitExpectedAsset(код), 2);
 
                             menuStock.Add(new SubItem(PackIconKind.CheckboxMarkedCircleOutline, наименование, стоимость, изменение));
                         }
@@ -91,7 +122,7 @@ WHERE Дата = @ПоследняяДата AND History.Код != 'RUB' AND О�
                 }
             }
 
-            var item6 = new ItemMenu("Акции", menuStock, PackIconKind.ChartDonut);
+            var itemStock = new ItemMenu("Акции", menuStock, PackIconKind.ChartDonut);
 
             var menuCurrency = new List<SubItem>();
             using (var connection = new SqlConnection(connectionString))
@@ -106,14 +137,15 @@ WHERE Дата = @ПоследняяДата AND History.Код != 'RUB' AND О�
                             // Создание объекта SubItem на основе данных из выборки
                             string наименование = reader.GetString(1);
                             decimal стоимость = reader.GetDecimal(3);
-                            string изменение = "0";
+                            string код = reader.GetString(0);
+                            double изменение = Math.Round(dataService.GetProfitExpectedAsset(код), 2);
 
                             menuCurrency.Add(new SubItem(PackIconKind.CheckboxMarkedCircleOutline, наименование, стоимость, изменение));
                         }
                     }
                 }
             }
-            var item1 = new ItemMenu("Валюта", menuCurrency, PackIconKind.ChartDonut);
+            var itemCurrency = new ItemMenu("Валюта", menuCurrency, PackIconKind.ChartDonut);
 
 
             var menuMetals = new List<SubItem>();
@@ -129,23 +161,70 @@ WHERE Дата = @ПоследняяДата AND History.Код != 'RUB' AND О�
                             // Создание объекта SubItem на основе данных из выборки
                             string наименование = reader.GetString(1);
                             decimal стоимость = reader.GetDecimal(3);
-                            string изменение = "0";
+                            string код = reader.GetString(0);
+                            double изменение = Math.Round(dataService.GetProfitExpectedAsset(код), 2);
 
                             menuMetals.Add(new SubItem(PackIconKind.CheckboxMarkedCircleOutline, наименование, стоимость, изменение));
                         }
                     }
                 }
             }
-            var item4 = new ItemMenu("Драгоценные металлы", menuMetals, PackIconKind.ChartDonut);
+            var itemMetals = new ItemMenu("Драгоценные металлы", menuMetals, PackIconKind.ChartDonut);
+
+            var menuETF = new List<SubItem>();
+            using (var connection = new SqlConnection(connectionString))
+            {
+                using (var command = new SqlCommand(sqlQueryETF, connection))
+                {
+                    connection.Open();
+                    using (var reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            // Создание объекта SubItem на основе данных из выборки
+                            string наименование = reader.GetString(1);
+                            decimal стоимость = reader.GetDecimal(3);
+                            string код = reader.GetString(0);
+                            double изменение = Math.Round(dataService.GetProfitExpectedAsset(код), 2);
+
+                            menuETF.Add(new SubItem(PackIconKind.CheckboxMarkedCircleOutline, наименование, стоимость, изменение));
+                        }
+                    }
+                }
+            }
+            var itemETF = new ItemMenu("ПИФ", menuETF, PackIconKind.ChartDonut);
+
+            var menuBond = new List<SubItem>();
+            using (var connection = new SqlConnection(connectionString))
+            {
+                using (var command = new SqlCommand(sqlQueryBond, connection))
+                {
+                    connection.Open();
+                    using (var reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            // Создание объекта SubItem на основе данных из выборки
+                            string наименование = reader.GetString(1);
+                            decimal стоимость = reader.GetDecimal(3);
+                            string код = reader.GetString(0);
+                            double изменение = Math.Round(dataService.GetProfitExpectedAsset(код), 2);
+
+                            menuBond.Add(new SubItem(PackIconKind.CheckboxMarkedCircleOutline, наименование, стоимость, изменение));
+                        }
+                    }
+                }
+            }
+            var itemBond = new ItemMenu("Облигации", menuBond, PackIconKind.ChartDonut);
 
             //var item0 = new ItemMenu("Dashboard", new UserControl(), PackIconKind.ViewDashboard);
 
             //Menu.Children.Add(new UserControlMenuItem(item0));
-            Menu.Children.Add(new UserControlMenuItem(item6));
-            Menu.Children.Add(new UserControlMenuItem(item1));
-            Menu.Children.Add(new UserControlMenuItem(item4));
-
-
+            Menu.Children.Add(new UserControlMenuItem(itemStock));
+            Menu.Children.Add(new UserControlMenuItem(itemCurrency));
+            Menu.Children.Add(new UserControlMenuItem(itemMetals));
+            Menu.Children.Add(new UserControlMenuItem(itemBond));
+            Menu.Children.Add(new UserControlMenuItem(itemETF));
 
 
             var item10 = new ItemMenu(PackIconKind.History, "SBER", "1379.50 ₽");
