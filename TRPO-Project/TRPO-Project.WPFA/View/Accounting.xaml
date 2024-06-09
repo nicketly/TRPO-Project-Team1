@@ -21,20 +21,20 @@
             <TextBlock Margin="0 0" HorizontalAlignment="Left"  FontWeight="SemiBold" Text="Учет" FontSize="60" Foreground="WhiteSmoke" />
         </WrapPanel>
 
-        <StackPanel  Margin="85 200 0 530" HorizontalAlignment="Left"  >
+        <WrapPanel  Margin="85 200 0 530" HorizontalAlignment="Left"  >
             <StackPanel Margin="10">
 
 
-                <ComboBox Foreground="WhiteSmoke" FontSize="14" FontFamily="Arial" BorderBrush="WhiteSmoke" Background="#413C8E" BorderThickness="1" Width="710" >
+                <ComboBox Foreground="Black" FontSize="20" FontFamily="SemiBold" BorderBrush="WhiteSmoke" Background="#413C8E" BorderThickness="1" Width="710" x:Name="ComboBoxAssets" IsReadOnly="True">
                 </ComboBox>
 
 
             </StackPanel>
+            <DatePicker Margin="50 0 0 0" Width="200" x:Name="DatePicker"></DatePicker>
 
-
-        </StackPanel>
+        </WrapPanel>
         <WrapPanel>
-            <TextBox Margin="95 340 0 0" HorizontalAlignment="Left" Height="50" Width="440" FontWeight="SemiBold" FontSize="30" Foreground="WhiteSmoke" Background="#413C8E">
+            <TextBox Margin="95 340 0 0" HorizontalAlignment="Left" Height="50" Width="440" FontWeight="SemiBold" FontSize="30" Foreground="WhiteSmoke" Background="#413C8E" x:Name="TextBoxSum">
 
             </TextBox>
             <TextBlock  Margin="50 347 0 0"  FontWeight="SemiBold" Text="Текущая цена 1 ед., руб." FontSize="20" Foreground="WhiteSmoke" />
@@ -44,7 +44,7 @@
 
 
             <WrapPanel>
-                <Button BorderThickness="5" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="135 0 0 0"
+                <Button BorderThickness="5" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="135 0 0 0" x:Name="ButtonEnter" Click="ButtonEnter_Click"
     Background="#E8E15A" BorderBrush="#E8E15A" Width="300" Height="200" >
 
 

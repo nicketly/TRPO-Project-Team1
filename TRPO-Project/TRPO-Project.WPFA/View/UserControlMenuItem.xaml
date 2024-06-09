@@ -19,13 +19,14 @@
                             <TextBlock Text="{Binding Path=Name}" Padding="20 5" FontSize="22" Foreground="LightGray" FontWeight="SemiBold"/>
                             <StackPanel>
                                 <TextBlock Text="{Binding Path=Check}" Padding="120 5 0 0" FontSize="15" Foreground="LightGray" FontWeight="SemiBold" HorizontalAlignment="Right"/>
-                                <TextBlock Text="{Binding Path=Changes}" Padding="125 0 0 0" FontSize="10" Foreground="#E8E15A" FontWeight="SemiBold" HorizontalAlignment="Right"/>
+                                <TextBlock Text="{Binding Path=Changes}" Padding="125 0 0 0" FontSize="10" Foreground="#2EACA3" FontWeight="SemiBold" HorizontalAlignment="Right"/>
                             </StackPanel>
                             
                         </WrapPanel>
                         
                 </DataTemplate>
-                                
+                
+                
             </ListView.ItemTemplate>
             
         </ListView>

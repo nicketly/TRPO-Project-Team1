@@ -33,7 +33,7 @@
 
         </StackPanel>
         <StackPanel>
-            <TextBox Margin="95 340 0 0" HorizontalAlignment="Left" Height="50" Width="600" FontWeight="SemiBold" FontSize="30" Foreground="WhiteSmoke" Background="#413C8E">
+            <TextBox Margin="95 340 0 0" HorizontalAlignment="Left" Height="50" Width="600" FontWeight="SemiBold" FontSize="30" Foreground="WhiteSmoke" Background="#413C8E"  x:Name="TextBoxSum">
 
             </TextBox>
             <TextBlock  Margin="100 0 0 0"  FontWeight="SemiBold" Text="Сумма" FontSize="15" Foreground="WhiteSmoke" />
@@ -42,7 +42,7 @@
 
 
             <WrapPanel>
-                <Button BorderThickness="5" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="135 500 0 0"
+                <Button BorderThickness="5" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="135 500 0 0" x:Name="ButtonEnter" Click="ButtonEnter_Click"
     Background="#E8E15A" BorderBrush="#E8E15A" Width="300" Height="200" >
 
 
@@ -50,7 +50,7 @@
 
                 </Button>
 
-                <Button BorderThickness="1" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="40 500 0 0"
+                <Button BorderThickness="1" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="40 500 0 0" x:Name="ButtonWithdraw" Click="ButtonWithdraw_Click"
 Background="#22215D" BorderBrush="#E8E15A" Width="300" Height="200" >
 
 

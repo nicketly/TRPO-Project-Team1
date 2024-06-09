@@ -18,52 +18,44 @@
 
         <WrapPanel  Margin="65 70" HorizontalAlignment="Left"  >
 
-            <TextBlock Margin="0 0" HorizontalAlignment="Left"  FontWeight="SemiBold" Text="Выпалаты" FontSize="60" Foreground="WhiteSmoke" />
+            <TextBlock Margin="0 0" HorizontalAlignment="Left"  FontWeight="SemiBold" Text="Выплаты" FontSize="60" Foreground="WhiteSmoke" />
         </WrapPanel>
 
-        <StackPanel  Margin="75 200 0 400" HorizontalAlignment="Left"  >
-            <StackPanel>
-                <TextBlock Margin="0 0 0 0" HorizontalAlignment="Left"  FontWeight="SemiBold" Text="Баланс" FontSize="25" Foreground="WhiteSmoke" />
-                <TextBlock Margin="0 0 0 0" HorizontalAlignment="Left"  FontWeight="SemiBold" Text=" 1 000 000 Р" FontSize="50" Foreground="WhiteSmoke" />
-            </StackPanel>
 
-
-        </StackPanel>
         <StackPanel>
-            <TextBox Margin="95 340 0 0" HorizontalAlignment="Left" Height="50" Width="600" FontWeight="SemiBold" FontSize="30" Foreground="WhiteSmoke" Background="#413C8E">
+            <WrapPanel>
+                <StackPanel>
+                    <TextBox Margin="95 240 0 0" HorizontalAlignment="Left" Height="50" Width="510" FontWeight="SemiBold" FontSize="30" Foreground="WhiteSmoke" Background="#413C8E" x:Name="TextBoxSum">
 
-            </TextBox>
-            <TextBlock  Margin="100 0 0 0"  FontWeight="SemiBold" Text="Сумма" FontSize="15" Foreground="WhiteSmoke" />
+                    </TextBox>
+                    <TextBlock  Margin="100 0 0 0"  FontWeight="SemiBold" Text="Цена" FontSize="15" Foreground="WhiteSmoke" />
+                </StackPanel>
+                
+
+            </WrapPanel>
+            
         </StackPanel>
-        <StackPanel Margin="0 425 0 0">
+        <StackPanel Margin="0 340 0 0">
 
 
-            <ComboBox Foreground="WhiteSmoke" FontSize="14" FontFamily="Arial" BorderBrush="WhiteSmoke" Background="#413C8E" BorderThickness="1" Width="710" Margin="95 15 0 0" HorizontalAlignment="Left">
+            <ComboBox Foreground="Black" FontSize="20" FontFamily="SemiBold" BorderBrush="WhiteSmoke" Background="#413C8E" BorderThickness="1" Width="710" Margin="95 15 0 0" HorizontalAlignment="Left" x:Name="ComboBoxAssets">
             </ComboBox>
             <TextBlock  Margin="100 0 0 0"  FontWeight="SemiBold" Text="Активы" FontSize="15" Foreground="WhiteSmoke" />
-            <ComboBox Foreground="WhiteSmoke" FontSize="14" FontFamily="Arial" BorderBrush="WhiteSmoke" Background="#413C8E" BorderThickness="1" Width="710" Margin="95 20 0 0" HorizontalAlignment="Left">
+            <ComboBox Foreground="Black" FontSize="20" FontFamily="SemiBold" BorderBrush="WhiteSmoke" Background="#413C8E" BorderThickness="1" Width="710" Margin="95 20 0 0" HorizontalAlignment="Left" x:Name="ComboBoxPayments">
             </ComboBox>
             <TextBlock  Margin="100 0 0 0"  FontWeight="SemiBold" Text="Выплаты" FontSize="15" Foreground="WhiteSmoke" />
 
 
         </StackPanel>
-        <StackPanel Margin="0 600 0 0">
+        <StackPanel Margin="0 540 0 0">
         
 
             <WrapPanel>
-                <Button BorderThickness="5" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="135 0 0 0"
+                <Button BorderThickness="5" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="135 0 0 0" x:Name="Button" Click="ButtonReplenish_Click"
     Background="#E8E15A" BorderBrush="#E8E15A" Width="300" Height="200" >
 
 
                     <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center"  FontWeight="SemiBold" Text="Пополнить" FontSize="45" Foreground="Black" />
-
-                </Button>
-
-                <Button BorderThickness="1" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="40 0 0 0"
-Background="#22215D" BorderBrush="#E8E15A" Width="300" Height="200" >
-
-
-                    <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center"  FontWeight="SemiBold" Text="Вывести" FontSize="45" Foreground="#E8E15A" />
 
                 </Button>
             </WrapPanel>

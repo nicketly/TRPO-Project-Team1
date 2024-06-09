@@ -16,11 +16,14 @@
             </LinearGradientBrush>
         </Grid.Background>
         <StackPanel Margin="10">
-            <DatePicker Margin="800 60 0 0" Width="200"></DatePicker>
+            <WrapPanel>
+                <DatePicker Margin="860 60 0 0" Width="200" x:Name="DatePicker"></DatePicker>
+            </WrapPanel>
+
             <WrapPanel>
                 <StackPanel>
                     <TextBlock Text="Доля активов в портфеле" Margin="150 30 0 0"  FontWeight="SemiBold" FontSize="25" Foreground="WhiteSmoke" ></TextBlock>
-                    <lvc:PieChart Margin="150 15 0 0" Series="{Binding LastHourSeries1}" Height="250" Width="300" >
+                    <lvc:PieChart Margin="150 15 0 0" Series="{Binding AssetsBriefcase}" Height="250" Width="300" >
                         <lvc:PieChart.AxisX>
                             <lvc:Axis MinValue="0" />
                         </lvc:PieChart.AxisX>
@@ -28,7 +31,7 @@
                 </StackPanel>
                 <StackPanel>
                     <TextBlock Text="Доля типов продуктов" Margin="185 30 0 0"  FontWeight="SemiBold" FontSize="25" Foreground="WhiteSmoke" ></TextBlock>
-                    <lvc:PieChart Margin="170 15 150 0" Series="{Binding LastHourSeries2}" Height="250" Width="300" >
+                    <lvc:PieChart Margin="170 15 150 0" Series="{Binding AssetsTypes}" Height="250" Width="300" >
                         <lvc:PieChart.AxisX>
                             <lvc:Axis MinValue="0" />
                         </lvc:PieChart.AxisX>
@@ -39,23 +42,12 @@
             </WrapPanel>
             <WrapPanel>
                 <StackPanel>
-                    <TextBlock Text="Динамика цен активов" Margin="160 30 0 0"  FontWeight="SemiBold" FontSize="25" Foreground="WhiteSmoke" ></TextBlock>
-                    <lvc:CartesianChart Margin="150 15 0 0" Series="{Binding LastHourSeries}" Hoverable="False" DataTooltip="{x:Null}" Height="250" Width="300">
-                        <lvc:CartesianChart.AxisX>
-                            <lvc:Axis MinValue="0" />
-                        </lvc:CartesianChart.AxisX>
+                    <TextBlock Text="Динамика цен активов" Margin="390 30 0 0"  FontWeight="SemiBold" FontSize="25" Foreground="WhiteSmoke" ></TextBlock>
+                    <lvc:CartesianChart LegendLocation="Right" Margin="200 15 0 0" x:Name="AssetsPrice" Hoverable="False" DataTooltip="{x:Null}" Height="300" Width="700">
                     </lvc:CartesianChart>
                 </StackPanel>
 
-                <StackPanel>
-                    <TextBlock Text="Динамика доходности портфеля" Margin="135 30 0 0"  FontWeight="SemiBold" FontSize="25" Foreground="WhiteSmoke" ></TextBlock>
-                    <lvc:CartesianChart Margin="130 15 0 0" Series="{Binding LastHourSeries4}" Hoverable="False" DataTooltip="{x:Null}" Height="250" Width="300">
-                        <lvc:CartesianChart.AxisX>
-                            <lvc:Axis MinValue="0" />
-                        </lvc:CartesianChart.AxisX>
-                    </lvc:CartesianChart>
-                </StackPanel>
-                
+
             </WrapPanel>
 
         </StackPanel>

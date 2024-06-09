@@ -19,20 +19,24 @@
         <TextBlock Margin="65 70" HorizontalAlignment="Left"  FontWeight="SemiBold" Text="История" FontSize="60" Foreground="WhiteSmoke" />
         <WrapPanel>
             <StackPanel>
-                <TextBox Margin="65 170 0 0" HorizontalAlignment="Left" VerticalAlignment="Top" Height="50" Width="600" FontWeight="SemiBold" FontSize="30" Foreground="WhiteSmoke" Background="#413C8E">
+                <TextBox Margin="65 170 0 0" HorizontalAlignment="Left" VerticalAlignment="Top" Height="50" Width="600" FontWeight="SemiBold" FontSize="30" Foreground="WhiteSmoke" Background="#413C8E" x:Name="TextBoxSearch">
 
                 </TextBox>
                 <TextBlock  Margin="70 0 0 0"  FontWeight="SemiBold" Text="Поиск" FontSize="15" Foreground="WhiteSmoke" />
             </StackPanel>
-            <Button Background="#E8E15A" BorderBrush="#E8E15A" Foreground="Black" Margin="40 146 0 0" Height="40" Width="140" HorizontalAlignment="Right"  >
+            <Button Background="#E8E15A" BorderBrush="#E8E15A" Foreground="Black" Margin="20 146 0 0" Height="40" Width="140" HorizontalAlignment="Right" x:Name="ButtonSearch" Click="ButtonSearch_Click" >
                 <WrapPanel HorizontalAlignment="Center" >
                     <TextBlock Text="Поиск" VerticalAlignment="Center" FontWeight="SemiBold" Margin="10 0" TextWrapping="Wrap" FontSize="17"/>
                 </WrapPanel>
             </Button>
-
-            <Button Background="#22215D" BorderBrush="#E8E15A" Foreground="#E8E15A" Margin="40 146 0 0" Height="40" Width="140" HorizontalAlignment="Right"  >
+            <Button Background="#E8E15A" BorderBrush="#E8E15A" Foreground="Black" Margin="20 146 0 0" Height="40" Width="90" HorizontalAlignment="Right" x:Name="ButtonExel" Click="ButtonExel_Click" >
                 <WrapPanel HorizontalAlignment="Center" >
-                    <TextBlock Text="Удалить" VerticalAlignment="Center" FontWeight="SemiBold" Margin="10 0" TextWrapping="Wrap" FontSize="17"/>
+                    <TextBlock Text="Exel" VerticalAlignment="Center" FontWeight="SemiBold" Margin="10 0" TextWrapping="Wrap" FontSize="17"/>
+                </WrapPanel>
+            </Button>
+            <Button Background="#E8E15A" BorderBrush="#E8E15A" Foreground="Black" Margin="20 146 0 0" Height="40" Width="90" HorizontalAlignment="Right" x:Name="ButtonPdf" Click="ButtonPdf_Click" >
+                <WrapPanel HorizontalAlignment="Center" >
+                    <TextBlock Text="Pdf" VerticalAlignment="Center" FontWeight="SemiBold" Margin="10 0" TextWrapping="Wrap" FontSize="17"/>
                 </WrapPanel>
             </Button>
         </WrapPanel>

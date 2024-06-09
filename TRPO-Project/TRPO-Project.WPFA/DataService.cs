@@ -15,13 +15,13 @@ namespace TRPO_Project.WPFA
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 string query = @"
-DECLARE 
-@СуммаПокупки		decimal(10, 2), 
-@СуммаПополнений	decimal(10, 2), 
-@СуммаДивидендов	decimal(10, 2), 
-@СуммаКупонов		decimal(10, 2), 
-@СуммаПродажи		decimal(10, 2),
-@СуммаВывода		decimal(10, 2)
+DECLARE
+@СуммаПокупки decimal(10, 2),
+@СуммаПополнений decimal(10, 2),
+@СуммаДивидендов decimal(10, 2),
+@СуммаКупонов decimal(10, 2),
+@СуммаПродажи decimal(10, 2),
+@СуммаВывода decimal(10, 2)
 
 SELECT
 @СуммаПокупки = (SELECT Sum(Сумма) FROM [dbo].[History] WHERE Операция = N'Покупка'),
@@ -49,7 +49,7 @@ SET @СуммаПополнений = 0
 IF(@СуммаПродажи IS NULL)
 SET @СуммаПродажи = 0
 
-SELECT @СуммаПополнений + @СуммаДивидендов + @СуммаКупонов + @СуммаПродажи - @СуммаПокупки - @СуммаВывода AS Баланс";
+SELECT @СуммаПополнений + @СуммаДивидендов + @СуммаКупонов + @СуммаПродажи - @СуммаПокупки - @СуммаВывода AS Баланс;";
 
                 SqlCommand command = new SqlCommand(query, connection);
                 connection.Open();
@@ -62,7 +62,7 @@ SELECT @СуммаПополнений + @СуммаДивидендов + @Су
         {
             decimal briefcase = 0m;
 
-            string connectionString = "Server=(localdb)\\ProjectModels;Database=TRPO-Project.Database;Integrated Security=True;";
+            string connectionString = "Server =(localdb)\\ProjectModels;Database=TRPO-Project.Database;Integrated Security=True;";
             string query = @"
             DECLARE @ПоследняяДата smalldatetime;
 
@@ -101,7 +101,7 @@ SELECT @СуммаПополнений + @СуммаДивидендов + @Су
                 SqlDataReader reader = command.ExecuteReader();
                 while (reader.Read())
                 {
-                    assetCodes.Add(reader["Код"].ToString());
+                    assetCodes.Add(reader["Код"].ToString().TrimEnd());
                 }
             }
             return assetCodes;
@@ -334,8 +334,8 @@ SELECT @СуммаКупонов
             double currentAvgPrice = (double)GetCurrentAvgPriceAsset(AssetCode);
             double purchaseAvgPrice = (double)GetPurchaseAvgPriceAsset(AssetCode);
             double currentAmount = (double)GetCurrentAmountAsset(AssetCode);
-
-            double profitExpected = InvLib.ProfitExpected(currentAvgPrice, purchaseAvgPrice, currentAmount);
+            InvLib invLib = new InvLib();
+            double profitExpected = invLib.ProfitExpected(currentAvgPrice, purchaseAvgPrice, currentAmount);
             return profitExpected;
         }
 
@@ -346,8 +346,8 @@ SELECT @СуммаКупонов
             double soldAmount = (double)GetSoldAmountAsset(AssetCode);
             double dividendsSum = (double)GetDividendsSumAsset(AssetCode);
             double couponsSum = (double)GetCouponsSumAsset(AssetCode);
-
-            return InvLib.ProfitFixed(saleSum, purchaseAvgPrice, soldAmount, dividendsSum, couponsSum);
+            InvLib invLib = new InvLib();
+            return invLib.ProfitFixed(saleSum, purchaseAvgPrice, soldAmount, dividendsSum, couponsSum);
         }
 
         public double GetIncomeAsset(string AssetCode)
@@ -357,8 +357,8 @@ SELECT @СуммаКупонов
             double purchaseAvgPrice = (double)GetPurchaseAvgPriceAsset(AssetCode);
             double currentAmount = (double)GetCurrentAmountAsset(AssetCode);
             double saleSum = (double)GetSaleSumAsset(AssetCode);
-
-            return InvLib.Income(profitExpected, profitFixed, purchaseAvgPrice, currentAmount, saleSum);
+            InvLib invLib = new InvLib();
+            return invLib.Income(profitExpected, profitFixed, purchaseAvgPrice, currentAmount, saleSum);
         }
 
         public double GetProfitExpected()

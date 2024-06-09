@@ -1,4 +1,5 @@
-﻿using System.ComponentModel;
+﻿using System.Collections.Generic;
+using System.ComponentModel;
 
 namespace TRPO_Project.WPFA.ViewModel
 {
@@ -73,6 +74,20 @@ namespace TRPO_Project.WPFA.ViewModel
                 }
             }
         }
+
+        public void AddData(Dictionary<string, List<double>> dict, string key, double value)
+        {
+            if (!dict.ContainsKey(key))
+            {
+                dict.Add(key, new List<double> { value });
+            }
+            else
+            {
+                dict[key].Add(value);
+            }
+        }
+
+        
 
         public event PropertyChangedEventHandler PropertyChanged;
         protected void OnPropertyChanged(string propertyName)
