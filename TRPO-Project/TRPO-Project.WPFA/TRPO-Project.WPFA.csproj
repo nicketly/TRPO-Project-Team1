@@ -11,6 +11,7 @@
   <ItemGroup>
     <None Remove="View\logo_yb.png" />
     <None Remove="View\logo_yw.png" />
+    <None Include="View\logo.png" />
   </ItemGroup>
 
   <ItemGroup>
